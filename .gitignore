@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application data
+data/
+
+# Environment
+.env
+*.env
+
+# Logs
+*.log
+
+# Test reports
+test-results/
+htmlcov/
+
+# Docker
+*.tar

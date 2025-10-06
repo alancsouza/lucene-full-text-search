@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=lucene_search
+    restart: unless-stopped
+
+  lucene-search-api:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - lucene-data:/app/data
+    environment:
+      - ENVIRONMENT=development
+      - MONGODB_URI=mongodb://mongodb:27017/lucene_search
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+volumes:
+  lucene-data:
+  mongodb-data:
