@@ -90,7 +90,7 @@ class LuceneSearchServiceTest {
         docs.forEach { service.indexDocument(it) }
 
         // Then
-        val results = service.search("programming", limit = 10)
+        val results = service.search("Content", limit = 10)
         assertEquals(3, results.totalHits)
     }
 
